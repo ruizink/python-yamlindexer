@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 
-class FixtureIndex():
+class IndexTestsData:
     globs = ['tests/fixtures/yaml/service-nginx.yaml']
 
-    expected = {
+    expected_index = {
         'apiVersion': {
             'v1': globs,
         },

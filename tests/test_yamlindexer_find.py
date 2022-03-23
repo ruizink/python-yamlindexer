@@ -1,4 +1,6 @@
-from yamlindexer import YamlIndex
+# -*- coding: utf-8 -*-
+
+from yamlindexer.core import YamlIndex
 from unittest import TestCase
 import pytest
 
