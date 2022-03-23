@@ -4,6 +4,3 @@ pytest-mypy
 types-PyYAML
 mock
 types-mock
-
-# remove
-ipdb

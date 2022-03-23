@@ -1,74 +1,41 @@
 
 class FixtureIndex():
-    globs = ['tests/fixtures/yaml/service.yaml']
+    globs = ['tests/fixtures/yaml/service-nginx.yaml']
 
-    expected_at_level = {
-        1: {
-            'apiVersion': {
-                'v1': globs,
-            },
-            'kind': {
-                'Service': globs,
-            },
-            'metadata': {},
-            'spec': {},
+    expected = {
+        'apiVersion': {
+            'v1': globs,
         },
-        2: {
-            'apiVersion': {
-                'v1': globs,
+        'kind': {
+            'Service': globs,
+        },
+        'metadata': {
+            'name': {
+                'nginx': globs,
             },
-            'kind': {
-                'Service': globs,
-            },
-            'metadata': {
-                'name': {
+            'labels': {
+                'app': {
                     'nginx': globs,
                 },
-                'labels': {},
-            },
-            'spec': {
-                'clusterIP': {
-                    'None': globs,
-                },
-                'ports': {},
-                'selector': {},
             },
         },
-        10: {
-            'apiVersion': {
-                'v1': globs,
+        'spec': {
+            'clusterIP': {
+                'None': globs,
             },
-            'kind': {
-                'Service': globs,
+            'ports': {
+                '0': {
+                    'port': {
+                        80: globs,
+                    },
+                    'name': {
+                        'web': globs,
+                    },
+                },
             },
-            'metadata': {
-                'name': {
+            'selector': {
+                'app': {
                     'nginx': globs,
-                },
-                'labels': {
-                    'app': {
-                        'nginx': globs,
-                    },
-                },
-            },
-            'spec': {
-                'clusterIP': {
-                    'None': globs,
-                },
-                'ports': {
-                    '0': {
-                        'port': {
-                            80: globs,
-                        },
-                        'name': {
-                            'web': globs,
-                        },
-                    },
-                },
-                'selector': {
-                    'app': {
-                        'nginx': globs,
-                    },
                 },
             },
         },
