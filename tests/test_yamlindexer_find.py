@@ -1,4 +1,3 @@
-from tkinter.ttk import Separator
 from yamlindexer import YamlIndex
 from unittest import TestCase
 import pytest
