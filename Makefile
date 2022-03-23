@@ -1,7 +1,7 @@
 init:
-	@pip install -r requirements.txt
+	@pip install -r tests/requirements.txt
 	
-build: test
+build: init test
 	@pip install -U setuptools wheel
 	python setup.py bdist_wheel
 	
