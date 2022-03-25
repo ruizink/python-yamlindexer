@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from yamlindexer.core import YamlIndex
+from yamlindexer.core import YAMLIndex
 from unittest import TestCase
 import pytest
 
 
 t = TestCase()
-yi = YamlIndex(root_path='tests/fixtures')
+yi = YAMLIndex(root_path='tests/fixtures')
 
 
 def pytest_configure(config):

@@ -15,7 +15,7 @@ long_description = open(
 if __name__ == "__main__":
 
     setup(
-        name='YamlIndexer',
+        name='YAMLIndexer',
         version=yamlindexer.version.VERSION,
         description='Python package to index YAML files for quicker searches',
         long_description=long_description,

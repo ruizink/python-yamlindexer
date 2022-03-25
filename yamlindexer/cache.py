@@ -8,11 +8,11 @@ import time
 from typing import Optional, Any
 
 
-class YamlIndexCacheExpired(Exception):
+class YAMLIndexCacheExpired(Exception):
     pass
 
 
-class YamlIndexCache():
+class YAMLIndexCache():
 
     cache_filename_suffix = '.yamlindex.cache'
     cache_ttl = 30
@@ -25,7 +25,7 @@ class YamlIndexCache():
 
     def load(self):
         if ((time.time() - os.path.getmtime(self.cache_file)) > self.cache_ttl):
-            raise YamlIndexCacheExpired(f'The cache file is older than TTL: "{self.cache_file}s" > "{self.cache_ttl}s" ({self.cache_file})')
+            raise YAMLIndexCacheExpired(f'The cache file is older than TTL: "{self.cache_file}s" > "{self.cache_ttl}s" ({self.cache_file})')
         try:
             with open(self.cache_file) as i:
                 self.yamlindex.index = json.load(i)
