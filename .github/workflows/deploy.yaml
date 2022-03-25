@@ -44,17 +44,11 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .github/tag-changelog-config.js
 
-      - name: PyPI Deployment
-        uses: casperdcl/deploy-pypi@v2
+      - name: Publish PyPI package
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
         with:
-          # PyPI username
-          user: ${{ secrets.PYPI_USER }}
-          # PyPI password or API token
-          password: ${{ secrets.PYPI_PASS }}
-          # `setup.py` command to run ("true" is a shortcut for "clean sdist -d <dist_dir> bdist_wheel -d <dist_dir>")
-          build: clean sdist -d dist/
-          # `pip` command to run ("true" is a shortcut for "wheel -w <dist_dir> --no-deps .")
-          pip: true
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
 
       - name: Github Release
         uses: softprops/action-gh-release@v1

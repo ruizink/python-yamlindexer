@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from distutils.core import setup
+from setuptools import setup
 import yamlindexer.version
 import os
 
@@ -27,7 +27,7 @@ if __name__ == "__main__":
         packages=["yamlindexer"],
         install_requires=[
             "PyYAML",
-            "dpath"
+            "dpath",
         ],
         scripts=[],
         data_files=[],
