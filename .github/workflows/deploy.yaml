@@ -1,6 +1,8 @@
 name: Deploy and Release
 
 on:
+  # allow manual trigger
+  workflow_dispatch: {}
   # Triggers the workflow on version change
   push:
     branches: 
