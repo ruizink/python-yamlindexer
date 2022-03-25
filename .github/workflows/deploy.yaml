@@ -5,8 +5,8 @@ on:
   push:
     branches: 
       - master
-    paths:
-      - yamlindexer/version.py
+    # paths:
+    #   - yamlindexer/version.py
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
