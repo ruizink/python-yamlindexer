@@ -5,5 +5,5 @@ YamlIndexer Module Repository
 
 Python package to index YAML files for quicker searches
 
-.. |Tests Status| image:: https://github.com/ruizink/python-yamlindexer/actions/workflows/tests.yaml/badge.svg?branch=development
+.. |Tests Status| image:: https://github.com/ruizink/python-yamlindexer/actions/workflows/tests.yaml/badge.svg
    :target: https://github.com/ruizink/python-yamlindexer/actions/workflows/tests.yaml
