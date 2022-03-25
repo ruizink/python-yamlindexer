@@ -33,7 +33,7 @@ class YamlIndex():
         if encoding is not None:
             self.encoding = encoding
         if cache is not None:
-            self.cache = yicache.YamlIndexCache(self, cache_ttl)
+            self.cache = yicache.YamlIndexCache(self, cache_ttl=cache_ttl)
 
         self.scan()
 
