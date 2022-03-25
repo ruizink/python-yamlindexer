@@ -1,13 +1,16 @@
-from yamlindexer import YamlIndex
-from .fixtures.index import FixtureIndex
+# -*- coding: utf-8 -*-
+
 from unittest import mock, TestCase
 import pytest
 
+from yamlindexer.core import YamlIndex
+from tests.data import IndexTestsData
+
 
 @pytest.mark.index
-@mock.patch('yamlindexer.iglob', return_value=FixtureIndex.globs)
+@mock.patch('yamlindexer.core.iglob', return_value=IndexTestsData.globs)
 def test_index(mock_iglob):
-    yi = YamlIndex(globs=FixtureIndex.globs)
+    yi = YamlIndex(globs=IndexTestsData.globs)
     tc = TestCase()
     tc.maxDiff = None
-    tc.assertDictEqual(FixtureIndex.expected, yi.index)
+    tc.assertDictEqual(IndexTestsData.expected_index, yi.index)
