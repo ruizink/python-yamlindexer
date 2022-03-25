@@ -5,8 +5,8 @@ on:
   push:
     branches: 
       - master
-    # paths:
-    #   - yamlindexer/version.py
+    paths:
+      - yamlindexer/version.py
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -43,6 +43,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .github/tag-changelog-config.js
+
+      - name: Build package
+        run: python setup.py clean sdist -d dist/
 
       - name: Publish PyPI package
         uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
