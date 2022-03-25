@@ -1,5 +1,7 @@
 # YAMLIndexer Module Repository
 
+[![PyPI version](https://img.shields.io/pypi/v/YAMLIndexer.svg?style=flat)](https://pypi.python.org/pypi/YAMLIndexer/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/YAMLIndexer.svg?style=flat)](https://pypi.python.org/pypi/YAMLIndexer/)
 [![example workflow](https://github.com/ruizink/python-yamlindexer/actions/workflows/tests.yaml/badge.svg)](https://github.com/ruizink/python-yamlindexer/actions/workflows/tests.yaml)
 
 Python package to index YAML files for quicker searches
