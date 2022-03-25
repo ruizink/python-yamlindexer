@@ -44,6 +44,9 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           config_file: .github/tag-changelog-config.js
 
+      - name: Build package
+        run: python setup.py clean sdist -d dist/
+
       - name: Publish PyPI package
         uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
         with:
