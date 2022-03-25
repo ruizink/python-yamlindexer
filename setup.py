@@ -19,6 +19,7 @@ if __name__ == "__main__":
         version=yamlindexer.version.VERSION,
         description='Python package to index YAML files for quicker searches',
         long_description=long_description,
+        long_description_content_type='text/markdown',
         author='Mario Santos',
         author_email='mario.rf.santos@gmail.com',
         url='https://github.com/ruizink/python-yamlindexer',
