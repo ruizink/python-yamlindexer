@@ -16,7 +16,7 @@ import yamlindexer.cache as yicache
 import yamlindexer.utils as yiutils
 
 
-class YamlIndex():
+class YAMLIndex():
 
     root_path = os.getcwd()
     globs = ['**/*.yml', '**/*.yaml']
@@ -33,7 +33,7 @@ class YamlIndex():
         if encoding is not None:
             self.encoding = encoding
         if cache is not None:
-            self.cache = yicache.YamlIndexCache(self, cache_ttl=cache_ttl)
+            self.cache = yicache.YAMLIndexCache(self, cache_ttl=cache_ttl)
 
         self.scan()
 
@@ -56,7 +56,7 @@ class YamlIndex():
         else:
             try:
                 self.cache.load()
-            except (FileNotFoundError, yicache.YamlIndexCacheExpired):
+            except (FileNotFoundError, yicache.YAMLIndexCacheExpired):
                 self.index = self._index_files()
                 self.cache.save()
 
