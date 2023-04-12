@@ -2,7 +2,7 @@
 
 import os
 import json
-import dpath.util
+import dpath
 from glob import iglob
 from typing import Any, Optional, List, Dict, Set
 try:
@@ -21,10 +21,10 @@ class YAMLIndex():
     root_path = os.getcwd()
     globs = ['**/*.yml', '**/*.yaml']
     encoding = 'utf-8'
-    index = dict()  # type: Any
+    index: Dict[Any, Any] = dict()
     cache = None
 
-    def __init__(self, root_path: str = None, globs: list = None, cache: Optional[bool] = None,
+    def __init__(self, root_path: Optional[str] = None, globs: Optional[list] = None, cache: Optional[bool] = None,
                  cache_ttl: Optional[int] = None, encoding: Optional[str] = None):
         if root_path is not None:
             self.root_path = root_path
@@ -62,21 +62,21 @@ class YAMLIndex():
 
     def search(self, filter: dict) -> list:
         # TODO: make sure to replace separator if filter_leaf_paths contain /
-        res = list()  # type: List[Set]
+        res: List[Set] = list()
         for f, sep in yiutils.leaf_paths(filter):
             res.append(set(self.search_dpath(f, separator=sep)))
 
         return list(set.intersection(*res))
 
     def search_one_of(self, filters: List[dict], separator: Optional[str] = '/') -> list:
-        res = set()  # type: Set[str]
+        res: Set[str] = set()
         for f in filters:
             res = res.union(set(self.search(f)))
         return list(res)
 
     def search_kv(self, **filters: str) -> list:
         # TODO: rewrite to avoid loops
-        res = set()  # type: Set[str]
+        res: Set[str] = set()
         for k, v in filters.items():
             res = res.union(set(self.index.get(k, {}).get(v, [])))
 
@@ -86,18 +86,18 @@ class YAMLIndex():
         return list(res)
 
     def search_dpath(self, query, **kwargs) -> list:
-        res = set()  # type: Set[str]
+        res: Set[str] = set()
         dpath.options.ALLOW_EMPTY_STRING_KEYS = True
-        search = dpath.util.values(self.index, query, **kwargs)
+        search = dpath.values(self.index, query, **kwargs)
         for r in search:
             res = res.union(set([x for _, x in dpath.segments.leaves(r)]))
         return list(res)
 
     def _index_files(self) -> dict:
-        files = list()  # type: List[str]
+        files: List[str] = list()
         for g in self.globs:
             files.extend(iglob(os.path.join(self.root_path, g), recursive=True))
-        index = dict()  # type: Dict[str, Dict[str, List[str]]]
+        index: Dict[str, Dict[str, List[str]]] = dict()
         for p in files:
             with open(p, 'r', encoding=self.encoding) as f:
                 if HAS_RYAML:
