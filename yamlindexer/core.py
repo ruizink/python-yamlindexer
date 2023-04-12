@@ -113,6 +113,8 @@ class YAMLIndex():
 
     def _push_to_index(self, data: dict, path: str, index=dict()) -> dict:
         # TODO: add tests
+        if type(data) is list:
+            data = {k: v for k, v in enumerate(data)}
         for k, v in data.items():
             if isinstance(v, list):
                 index.setdefault(k, {})
